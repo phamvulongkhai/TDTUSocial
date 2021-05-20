@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= user.fullname %></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+  </head>
+
+
+
+<div class="w3-top">
+  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+   <a href="/home" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Trang chủ</a>
+   <a href="/account/logout" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+     Đăng xuất
+   </a>
+  </div>
+ </div>
+ <!-- Page Container -->
+ <div class="w3-container w3-content">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <p class="w3-center"><img src="<%=user.picture%>" class="w3-circle"></p>
+         <h4 class="w3-center"><%= user.fullname %></h4>
+         <h6>Lớp: <%= user.Class %></h6>
+         <h6>Khoa: <%= user.faculty %></h6>
+          <% if (boo) { %>
+            <button type="button" class="btn btn-link"  data-toggle="modal" data-target="#exampleModalLong3" id="updatelopkhoa">Cập nhật Tên, Lớp và Khoa</button>
+            <!-- Modal thêm -->
+            <div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLong3Title" aria-hidden="true">
+             <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="exampleModalLongTitle">Cập nhật Tên, Lớp và Khoa</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     <div class="modal-body">
+                         <form method="POST" action="/account/update-info/<%=user._id%>">
+                             <div class="container"> 
+                                <label for="lop"><b>Tên</b></label>
+                                <input type="text" placeholder="Nhập tên lớp" name="fullname" id="fullname" required> <br>
+                                               
+                                 <label for="lop"><b>Lớp</b></label>
+                                 <input type="text" placeholder="Nhập tên lớp" name="Class" id="lop" required> <br>
+                     
+                                 <label for="khoa"><b>Khoa</b></label>
+                                 <input type="text" placeholder="Nhập tên khoa" name="faculty" id="khoa" required>
+                                 </div>
+                                 <button type="submit" class="btn btn-success" id="submitbtn">Submit</button>
+                             </div>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+          <% } %>
+         <hr>
+         <div class="left-menu">
+           <a href="/home" id="link-trangchu">Trang chủ</a><br>
+           <div class="dropdown">
+            <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Phân loại thông báo</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/notification/phongban">Phòng ban</a>
+              <a class="dropdown-item" href="/notification/all">Tất cả thông báo</a>
+            </div>
+          </div> 
+        </div>
+
+        </div>
+      </div>
+
+    <!-- End Left Column -->
+    </div>
+
+    <div class="w3-col m7">
+            
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <form action="/post/add" method="post" enctype="multipart/form-data">
+                <input type="text" name="status" class="status" id="status" placeholder="Status..." required>
+                <input type="text" name="video" class="video" id="video" placeholder="Youtube url">
+                <input type="file" name="image" class="image" id="image" placeholder="Picture">
+                <input type="text" name="personName" value="<%= user.fullname %>"  class="idanh">
+                <input type="text" name="avt" value="<%= user.picture %>"  class="idanh">
+                <button class="btn btn-success" id="sendnotification" type="submit"> POST </button> 
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>          
+    <!-- End Middle Column -->
+  <!-- bài post -->
+  
+  <% exist.forEach(p => { %>
+    <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+
+      <img src="<%= user.picture %>" alt="Avatar" class="avt-order w3-left w3-circle w3-margin-right" >
+      <span class="w3-right w3-opacity"><%= p.time %></span>
+      <h4><%= user.fullname %></h4><br>
+
+      <div class="thaotacbaipost">
+
+          <a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Sửa</a>
+          <!-- Modal thêm -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/post/update/<%= p.id %>" method="POST">
+                            <div class="container">                
+                                <label for="Status"><b>Status</b></label>
+                                <input type="text" placeholder="Status" name="status" id="Status">
+                    
+                                <label for="ytb"><b>Youtube URL</b></label>
+                                <input type="text" placeholder="Youtube URL" name="video" id="ytb">
+                                
+                                <input type="file"  name="image" id="filename">
+                                </div>
+                                <button type="submit" class="btn btn-success" id="submitbtn">Submit</button>
+                    
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+          <form action="/post/delete/<%= p._id%>" method="get">
+            <button type="submit">Xoá</button>
+          </form>
+        </div> <br>
+      <hr class="w3-clear">
+      <p><%= p.status %></p>
+      <div class="w3-row-padding">
+        <% if (p.video) { %>
+      <iframe class="kichthuocvid" src="https://www.youtube.com/embed/<%= p.video %>" title="YouTube video player" 
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+        <% } %>
+        <% if (p.picture) { %>
+          <div class="w3-half">
+            <img src="/uploads/<%= p.picture%>"  alt="photo" class="kichthuocanh w3-margin-bottom">
+            <a href="/uploads/<%= p.picture%>" download>Ấn để tải xuống</a>
+          </div>
+        <% } %>
+      </div>
+      <% p.comment.forEach(cmt => { %>
+        <div class="commentsssssss">
+          <h6><%= cmt.name %></h6>
+          <p><%= cmt.content %></p>
+          <form action="/post/delete/<%= p._id %>/<%= cmt._id %>" method="get">
+            <button type="submit" class="btn btn-sm btn-outline-danger btn-delete">Xóa</button>
+          </form>   
+        </div>
+      <% }) %>
+
+      <div class="w3-row-padding" >
+        <form action="/post/comment" method="post">
+          <input type="text" name="idPost" value="<%= p._id %>"  class="idanh">
+          <input type="text" name="name" value="<%= fullname %>" class="idanh" >
+          <input type="text" class="input-cmt" placeholder="Comments..." name="content" id="comment">
+          <button type="submit" class="btn-cmt btn-warning w3-margin-bottom"><i class="fa fa-comment"></i> Bình luận</button> 
+        </form>
+      </div>
+
+    </div>
+  <% }) %>
+
+
+  </div>
+
+  

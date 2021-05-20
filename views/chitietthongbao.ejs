@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Chi tiết thông báo</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+        
+        <!-- Navbar -->
+        <div class="w3-top">
+          <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+           <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+           <a href="/home" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Trang chủ</a>
+           <a href="/account/logout" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+             Đăng xuất
+           </a>
+          </div>
+         </div>
+        
+        <!-- Page Container -->
+        <div class="w3-container w3-content" >    
+          <!-- The Grid -->
+          <div class="w3-row">
+            <div class="row">
+              <div class="col-3">
+                <!-- <div class="w3-col m3"> -->
+                  <!-- Profile -->
+                    <p class="w3-center"><img src="/img/tdt.png" class="w3-circle"></p>
+                    <a href="/"><h4 class="w3-center"><%= user.name %></h4></a>
+                    <% if (user.Class) { %>
+                      <h6>Lớp: <%= user.Class %></h6>
+                    <% } %>
+
+                    <% if (user.faculty) { %>
+                      <h6>Khoa: <%= user.faculty %></h6>
+                    <% } %>
+                     <hr>
+                     <div class="left-menu">
+                       <a href="/home" id="link-trangchu">Trang chủ</a><br>
+                       <div class="dropdown">
+                        <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Phân loại thông báo</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="/phongban">Phòng ban</a>
+                          <a class="dropdown-item" href="#">Tất cả thông báo</a>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                <!-- End Left Column -->
+                <!-- </div> -->
+              </div>
+
+              <div class="col-9">
+                <div class="card">
+                  <div class="card-body" >
+                    <h5 class="card-title"><%= noti.header%></h5>
+                    <p class="card-text"><%= noti.content %></p>
+                    <% if (noti.file) { %>
+                      <h5>Tệp đính kèm: <a href="/uploads/<%= noti.file%>" download>Ấn để tải xuống</a></h5>
+                    <% } %>
+                  </div>
+                </div>
+            </div>
+            <!-- Middle Column -->
+            
+          <!-- End Grid -->
+          </div>
+        <!-- End Page Container -->
+        </div>
+
+</html> 
+        
+
+
+        

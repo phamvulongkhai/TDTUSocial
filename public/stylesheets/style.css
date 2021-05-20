@@ -1,0 +1,258 @@
+/* .w3-content{
+    max-width:1400px;
+    margin-top:80px
+}
+.w3-center img{
+    height:106px;
+    width:106px
+}
+#link-trangchu{
+    color: black;
+    font-weight: bold;
+}
+#dropdownMenu1{
+    margin-top: 20px;
+    font-weight: bold;
+}
+#dropdownMenu2{
+    margin-top: 20px;
+    font-weight: bold;
+}
+#tittle{
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+}
+#status{
+    display: block;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15px;
+}
+#image{
+    display: block;
+    margin-bottom: 15px;
+}
+#sendnotification{
+    width: 100%;
+    font-size: large;
+}
+.w3-container{
+    margin-bottom: 15px;
+}
+#card-fail{
+    text-align: center;
+    max-width: 30rem;
+    height: 300px;
+    margin: auto;
+    margin-top: 200px;
+    border-radius: 20px;
+    background: rgb(245,225,225);
+    background: linear-gradient(135deg, rgba(245,225,225,1) 0%, rgba(253,45,46,1) 100%);
+}
+
+#tenkhoa{
+    margin-top: 10px;
+}
+
+#btn-quaylai{
+    border-radius: 10px;
+    width: 50%;
+    height: 40px;
+}
+p.item {
+    padding: 16px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    background-color: green;
+  }
+.noidang{
+    margin-bottom: 15px;
+}
+#submitbtn{
+    float: right;
+    width: 100%;
+    margin-top: 15px;
+}
+.thaotacbaipost{
+    float: right;
+}
+.input-cmt{
+    width: 80%;
+    height: 50px;
+}
+#btn-cmt{
+    margin-top: 10px;
+    height: 50px;
+}
+.xoasuacmt{
+    margin-top: -20px;
+    margin-left: -10px;
+}
+.commentsssssss{
+    background-color: rgb(230, 232, 235);
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+.card-tdt{
+    border: black solid 1px; 
+    width: 18rem; 
+    margin-left: 10px ; 
+    margin-bottom: 15px;
+    background-color: black;
+}
+#card-danhsachphongban{
+    text-align: center; 
+    color: white;
+} */
+
+
+.w3-content{
+    max-width:1400px;
+    margin-top:80px
+}
+.w3-center img{
+    height:106px;
+    width:106px
+}
+#link-trangchu{
+    color: black;
+    font-weight: bold;
+}
+#dropdownMenu1{
+    margin-top: 20px;
+    font-weight: bold;
+}
+#dropdownMenu2{
+    margin-top: 20px;
+    font-weight: bold;
+}
+.tittle{
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+}
+.status{
+    display: block;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15px;
+}
+.image{
+    display: block;
+    margin-bottom: 15px;
+}
+.video{
+    display: block;
+    margin-bottom: 15px;
+}
+.tittle, .sua-tittle, .sua-status{
+    display: block;
+    margin-bottom: 15px;
+}
+#sendnotification{
+    width: 100%;
+    font-size: large;
+}
+.w3-container{
+    margin-bottom: 15px;
+}
+#card-fail{
+    text-align: center;
+    max-width: 30rem;
+    height: 300px;
+    margin: auto;
+    margin-top: 200px;
+    border-radius: 20px;
+    background: rgb(245,225,225);
+    background: linear-gradient(135deg, rgba(245,225,225,1) 0%, rgba(253,45,46,1) 100%);
+}
+
+#tenkhoa{
+    margin-top: 10px;
+}
+
+#btn-quaylai{
+    border-radius: 10px;
+    width: 50%;
+    height: 40px;
+}
+p.item {
+    padding: 16px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    background-color: green;
+  }
+.noidang{
+    margin-bottom: 15px;
+}
+#submitbtn{
+    float: right;
+    width: 100%;
+    margin-top: 15px;
+}
+.thaotacbaipost{
+    float: right;
+}
+.input-cmt{
+    width: 80%;
+    height: 50px;
+}
+.btn-cmt{
+    margin-top: 10px;
+    height: 50px;
+}
+.xoasuacmt{
+    margin-top: -20px;
+    margin-left: -10px;
+}
+.commentsssssss{
+    background-color: rgb(230, 232, 235);
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+.card-tdt{
+    border: black solid 1px; 
+    width: 18rem; 
+    margin-left: 10px ; 
+    margin-bottom: 15px;
+    background-color: black;
+}
+.card-danhsachphongban{
+    text-align: center; 
+    color: white;
+}
+.avt-order{
+    width:60px
+}
+.anhpost{
+    width:100%;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+.idanh{
+    display: none;
+}
+.kichthuocvid{
+    width: 100%;
+    height: 500px;
+}
+.kichthuocanh{
+    width: 100%;
+}
+.btn-xoacmt{
+    margin-bottom: 10px;
+}
+.thaotacbaipost-phongban a{
+    margin-bottom: 10px;
+}

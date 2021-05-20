@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUẢN LÝ USER</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    /* h2 {
+        text-align: center;
+    } */
+
+    /* tr{
+        text-align: center;
+    } */
+        /* Add padding to containers */
+        
+        /* .container {
+            padding: 16px;
+            background-color: white;
+        } */
+        /* Full-width input fields */
+        
+        /* input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+        
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        } */
+        /* Overwrite default styles of hr */
+        
+        /* hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        } */
+        /* Set a style for the submit button */
+        
+        /* .registerbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+        
+        .registerbtn:hover {
+            opacity: 1;
+        } */
+        /* Add a blue text color to links */
+        
+        /* a {
+            color: dodgerblue;
+        } */
+        /* Set a grey background color and center the text of the "sign in" section */
+        
+        /* .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+        #addbtn{
+            margin-bottom: 20px;
+            width: 100px;
+        }
+        #submitbtn{
+            width: 100%;
+        }
+        select{
+            width: 100%;
+        }
+        #delbtn{
+            float: left;
+            margin-right: 10px ;
+        } */
+</style>
+
+<body>
+    <table class="table table-striped mx-auto w-auto ">
+        <h2>QUẢN LÝ USER</h2>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" id="addbtn">THÊM</button>
+          <!-- Modal thêm -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Đăng ký tài khoản Phòng/ Khoa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="container">                
+                                <label for="UserName"><b>UserName</b></label>
+                                <input type="text" placeholder="Nhập UserName" name="UserNamet" id="UserName" required>
+                    
+                                <label for="psw"><b>Password</b></label>
+                                <input type="password" placeholder="Nhập mật khẩu" name="psw" id="psw" required>
+
+                                <!-- <label for="name"><b>Phòng khoa</b></label>
+                                <select class="form-select form-select-lg mb-3" >
+                                    <option selected>Chọn phòng khoa</option>
+                                    <option value="1">Phòng Công tác học sinh sinh viên (CTHSSV)</option>
+                                    <option value="2">Phòng Đại học</option>
+                                    <option value="3">Phòng Sau đại học</option>
+                                    <option value="4">Phòng điện toán và máy tính</option>
+                                    <option value="5">Phòng tài chính</option>
+                                    <option value="6">Phòng khảo thí và kiểm định chất lượng</option>
+                                    <option value="7">TDT Creative Language Center</option>
+                                    <option value="8">Trung tâm tin học</option>
+                                    <option value="9">Trung tâm đào tạo phát triển xã hội (SDTC)</option>
+                                    <option value="10">Trung tâm phát triển Khoa học quản lý và Ứng dụng công nghệ (ATEM)</option>
+                                    <option value="11">Trung tâm hợp tác doanh nghiệp và cựu sinh viên</option>
+                                    <option value="12">Khoa Luật</option>
+                                    <option value="13">Trung tâm ngoại ngữ - tin học – bồi dưỡng văn hóa</option>
+                                    <option value="14">Khoa Mỹ thuật công nghiệp</option>
+                                    <option value="15">Khoa Điện – Điện tử</option>
+                                    <option value="16">Khoa Công nghệ thông tin</option>
+                                    <option value="17">Khoa Môi trường và bảo hộ lao động</option>
+                                    <option value="18">Khoa Lao động công đoàn</option>
+                                    <option value="19">Khoa Tài chính ngân hàng</option>
+                                    <option value="20">Khoa giáo dục quốc tế</option>
+                                  </select>
+                                <label><b>Quyền đăng thông báo</b></label>
+                                <div class="form-check">
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck1" value="1"> 
+                                    <label class="form-check-label" for="exampleCheck1">Phòng Công tác học sinh sinh viên (CTHSSV) </label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck2" value="2"> 
+                                    <label class="form-check-label" for="exampleCheck2">Phòng Đại học</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck3" value="3">
+                                    <label class="form-check-label" for="exampleCheck3">Phòng Sau đại học</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck4" value="4"> 
+                                    <label class="form-check-label" for="exampleCheck4">Phòng điện toán và máy tính</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck5" value="5"> Phòng tài chính
+                                    <label class="form-check-label" for="exampleCheck5">Phòng tài chính</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck6" value="6"> 
+                                    <label class="form-check-label" for="exampleCheck6">Phòng khảo thí và kiểm định chất lượng</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck7" value="7"> 
+                                    <label class="form-check-label" for="exampleCheck7">TDT Creative Language Center</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck8" value="8"> 
+                                    <label class="form-check-label" for="exampleCheck8">Trung tâm tin học</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck9" value="9">
+                                    <label class="form-check-label" for="exampleCheck9">Trung tâm đào tạo phát triển xã hội (SDTC)</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck10" value="10"> 
+                                    <label class="form-check-label" for="exampleCheck10">Trung tâm phát triển Khoa học quản lý và Ứng dụng công nghệ (ATEM)</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck11" value="11"> 
+                                    <label class="form-check-label" for="exampleCheck11">Trung tâm hợp tác doanh nghiệp và cựu sinh viên</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck12" value="12"> 
+                                    <label class="form-check-label" for="exampleCheck12">Khoa Luật</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck13" value="13">
+                                    <label class="form-check-label" for="exampleCheck13">Trung tâm ngoại ngữ - tin học – bồi dưỡng văn hóa</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck14" value="14"> 
+                                    <label class="form-check-label" for="exampleCheck14">Khoa Mỹ thuật công nghiệp</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck15" value="15"> 
+                                    <label class="form-check-label" for="exampleCheck15">Khoa Điện – Điện tử</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck16" value="16"> 
+                                    <label class="form-check-label" for="exampleCheck16">Khoa Công nghệ thông tin</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck17" value="17"> 
+                                    <label class="form-check-label" for="exampleCheck17">Khoa Môi trường và bảo hộ lao động</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck18" value="18"> 
+                                    <label class="form-check-label" for="exampleCheck18">Khoa Lao động công đoàn</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck19" value="19"> 
+                                    <label class="form-check-label" for="exampleCheck19">Khoa Tài chính ngân hàng</label><br>
+                                    <input class="form-check-input position-static" type="checkbox" id="exampleChec20" value="20"> 
+                                    <label class="form-check-label" for="exampleCheck20">Khoa giáo dục quốc tế</label>
+                                </div> -->
+                                </div>
+                                <button type="submit" class="btn btn-success" id="submitbtn">Submit</button>
+                    
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Mật khẩu</th>
+                <th scope="col">Phòng/ Khoa</th>
+                <th scope="col">Nơi được đăng thông báo</th>
+                <th scope="col">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                acc.forEach(p => {
+                    <td><%= acc.username%></td>
+                    <td><%= acc.name%></td>
+                    <td>
+                        
+                    </td>
+                })
+                <td><%= acc.%></td>
+                <td>123456</td>
+                <td>CNTT</td>
+                <td>
+                    <li>cntt</li>
+                    <li>mtcn</li>
+                </td>
+                <td>
+                    <button class="btn btn-danger" id="delbtn">Xóa</button>
+                    <div class="edit-area">
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong2" id="editbtn">Sửa</button>
+                        <!-- Modal sửa -->
+                        <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLong2Title" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLong2Title">Sửa thông tin Phòng/ Khoa</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="container">                
+                                                <label for="UserName"><b>UserName</b></label>
+                                                <input type="text" placeholder="Nhập UserName" name="UserName" id="UserName" disabled>
+                                    
+                                                <label for="psw"><b>Password</b></label>
+                                                <input type="password" placeholder="Nhập mật khẩu" name="psw" id="psw" disabled>
+                
+                                                <label for="name"><b>Phòng khoa</b></label>
+                                                <select class="form-select form-select-lg mb-3" >
+                                                    <option selected>Chọn phòng khoa</option>
+                                                    <option value="1">Phòng Công tác học sinh sinh viên (CTHSSV)</option>
+                                                    <option value="2">Phòng Đại học</option>
+                                                    <option value="3">Phòng Sau đại học</option>
+                                                    <option value="4">Phòng điện toán và máy tính</option>
+                                                    <option value="5">Phòng tài chính</option>
+                                                    <option value="6">Phòng khảo thí và kiểm định chất lượng</option>
+                                                    <option value="7">TDT Creative Language Center</option>
+                                                    <option value="8">Trung tâm tin học</option>
+                                                    <option value="9">Trung tâm đào tạo phát triển xã hội (SDTC)</option>
+                                                    <option value="10">Trung tâm phát triển Khoa học quản lý và Ứng dụng công nghệ (ATEM)</option>
+                                                    <option value="11">Trung tâm hợp tác doanh nghiệp và cựu sinh viên</option>
+                                                    <option value="12">Khoa Luật</option>
+                                                    <option value="13">Trung tâm ngoại ngữ - tin học – bồi dưỡng văn hóa</option>
+                                                    <option value="14">Khoa Mỹ thuật công nghiệp</option>
+                                                    <option value="15">Khoa Điện – Điện tử</option>
+                                                    <option value="16">Khoa Công nghệ thông tin</option>
+                                                    <option value="17">Khoa Môi trường và bảo hộ lao động</option>
+                                                    <option value="18">Khoa Lao động công đoàn</option>
+                                                    <option value="19">Khoa Tài chính ngân hàng</option>
+                                                    <option value="20">Khoa giáo dục quốc tế</option>
+                                                </select>
+                                                <label><b>Quyền đăng thông báo</b></label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck1" value="1"> 
+                                                    <label class="form-check-label" for="updateCheck1">Phòng Công tác học sinh sinh viên (CTHSSV) </label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck2" value="2"> 
+                                                    <label class="form-check-label" for="updateCheck2">Phòng Đại học</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck3" value="3">
+                                                    <label class="form-check-label" for="updateCheck3">Phòng Sau đại học</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck4" value="4"> 
+                                                    <label class="form-check-label" for="updateCheck4">Phòng điện toán và máy tính</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck5" value="5"> Phòng tài chính
+                                                    <label class="form-check-label" for="updateCheck5">Phòng tài chính</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck6" value="6"> 
+                                                    <label class="form-check-label" for="updateCheck6">Phòng khảo thí và kiểm định chất lượng</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck7" value="7"> 
+                                                    <label class="form-check-label" for="updateCheck7">TDT Creative Language Center</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck8" value="8"> 
+                                                    <label class="form-check-label" for="updateCheck8">Trung tâm tin học</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck9" value="9">
+                                                    <label class="form-check-label" for="updateCheck9">Trung tâm đào tạo phát triển xã hội (SDTC)</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck10" value="10"> 
+                                                    <label class="form-check-label" for="updateCheck10">Trung tâm phát triển Khoa học quản lý và Ứng dụng công nghệ (ATEM)</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck11" value="11"> 
+                                                    <label class="form-check-label" for="updateCheck11">Trung tâm hợp tác doanh nghiệp và cựu sinh viên</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck12" value="12"> 
+                                                    <label class="form-check-label" for="updateCheck12">Khoa Luật</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck13" value="13">
+                                                    <label class="form-check-label" for="updateCheck13">Trung tâm ngoại ngữ - tin học – bồi dưỡng văn hóa</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck14" value="14"> 
+                                                    <label class="form-check-label" for="updateCheck14">Khoa Mỹ thuật công nghiệp</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck15" value="15"> 
+                                                    <label class="form-check-label" for="updateCheck15">Khoa Điện – Điện tử</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck16" value="16"> 
+                                                    <label class="form-check-label" for="updateCheck16">Khoa Công nghệ thông tin</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck17" value="17"> 
+                                                    <label class="form-check-label" for="updateCheck17">Khoa Môi trường và bảo hộ lao động</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck18" value="18"> 
+                                                    <label class="form-check-label" for="updateCheck18">Khoa Lao động công đoàn</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck19" value="19"> 
+                                                    <label class="form-check-label" for="updateCheck19">Khoa Tài chính ngân hàng</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="updateCheck20" value="20"> 
+                                                    <label class="form-check-label" for="updateCheck20">Khoa giáo dục quốc tế</label>
+                                                </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-success" id="submitbtn">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                     <!-- Modal -->
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

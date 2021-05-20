@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+  <script type="text/javascript" src="/javascripts/main.js"></script>
+  <title><%= user.name %></title>
+</head>
+    
+    <div class="w3-top">
+      <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+       <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+       <a href="/home" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Trang chủ</a>
+       <a href="/account/logout" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+         Đăng xuất
+       </a>
+      </div>
+     </div>
+     
+
+     <!-- Page Container -->
+     <div class="w3-container w3-content">    
+      <!-- The Grid -->
+      <div class="w3-row">
+        <!-- Left Column -->
+        <div class="w3-col m3">
+          <!-- Profile -->
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container">
+              <a href="/editpwd">edit</a>
+             <p class="w3-center"><img src="/img/tdt.png" class="w3-circle"></p>
+             <h4 class="w3-center"><%= user.name %></h4>
+             <hr>
+             <div class="left-menu">
+               <a href="/home" id="link-trangchu">Trang chủ</a><br>
+               <div class="dropdown">
+                <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Phân loại thông báo</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/notification/phongban">Phòng ban</a>
+                  <a class="dropdown-item" href="/notification/all">Tất cả thông báo</a>
+                </div>
+              </div>
+            </div>
+            
+
+            </div>
+          </div>
+
+        <!-- End Left Column -->
+        </div>
+
+
+        <div class="w3-col m7">
+            
+          <div class="w3-row-padding">
+            <div class="w3-col m12">
+              <div class="w3-card w3-round w3-white">
+                <div class="w3-container w3-padding">
+                  <form action="/notification/add" method="post" enctype="multipart/form-data">
+                    <input type="text" class="tittle"  name="header" id="tittle" placeholder="Tittle..." required>
+                    <input type="text" class="status" name="content" id="status" placeholder="Status..." required>
+                    <input type="file" name="image" class="image" id="image" placeholder="file">
+
+                    <div class="noidang">
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" id="addbtn">Nơi đăng thông báo</button>
+                        <!-- Modal -->
+                      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Chọn nơi đăng thông báo</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>
+                                  </div>
+                                  <div class="modal-body">
+                                          <div class="container"></div>
+                                            <label for="select-pb"><b>Phòng ban</b></label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck1" name="option1" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck1">Phòng Công tác học sinh sinh viên (CTHSSV) </label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck2" name="option2" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck2">Phòng Đại học</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck3" name="option3" value="true">
+                                                    <label class="form-check-label" for="exampleCheck3">Phòng Sau đại học</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck4" name="option4" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck4">Phòng điện toán và máy tính</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck5" name="option5" value="true"> Phòng tài chính
+                                                    <label class="form-check-label" for="exampleCheck5">Phòng tài chính</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck6" name="option6" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck6">Phòng khảo thí và kiểm định chất lượng</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck7" name="option7" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck7">TDT Creative Language Center</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck8" name="option8" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck8">Trung tâm tin học</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck9" name="option9" value="true">
+                                                    <label class="form-check-label" for="exampleCheck9">Trung tâm đào tạo phát triển xã hội (SDTC)</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck10" name="option10" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck10">Trung tâm phát triển Khoa học quản lý và Ứng dụng công nghệ (ATEM)</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck11" name="option11" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck11">Trung tâm hợp tác doanh nghiệp và cựu sinh viên</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck12" name="option12" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck12">Khoa Luật</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck13" name="option13" value="true"> T
+                                                    <label class="form-check-label" for="exampleCheck13">Trung tâm ngoại ngữ - tin học – bồi dưỡng văn hóa</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck14" name="option14" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck14">Khoa Mỹ thuật công nghiệp</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck15" name="option15" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck15">Khoa Điện – Điện tử</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck16" name="option16" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck16">Khoa Công nghệ thông tin</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck17" name="option17" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck17">Khoa Môi trường và bảo hộ lao động</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck18" name="option18" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck18">Khoa Lao động công đoàn</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleCheck19" name="option19" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck19">Khoa Tài chính ngân hàng</label><br>
+                                                    <input class="form-check-input position-static" type="checkbox" id="exampleChec20" name="option20" value="true"> 
+                                                    <label class="form-check-label" for="exampleCheck20">Khoa giáo dục quốc tế</label>
+                                                </div>
+                                                <button type="submit" class="btn btn-success" id="submitbtn">Submit</button>
+                                          </div>
+                                  </div>
+                              </div>
+                          </div>
+                    </div>
+                    <button class="btn btn-success" id="sendnotification" type="submit"> POST </button> 
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>          
+        <!-- End Middle Column -->
+        
+
+        <% notis.forEach(noti => { %>
+          <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+            <span class="w3-right w3-opacity"><%= noti.time %></span>
+            <h4><%= noti.header %></h4><br>
+            <p><%= noti.content %></p>
+            <% if (noti.file) { %>
+              <div class="w3-half">
+                <a  href="/uploads/<%= noti.file%>" download >Ấn để tải: <br> <%= noti.file%></a>
+            <% } %>
+            <div class="thaotacbaipost-phongban">
+              <!-- Modal SỬA THÔNG BÁO -->
+              <a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong5">Sửa</a>
+              <div class="modal fade" id="exampleModalLong5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLong5Title" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/notification/update/<%= noti._id%>" method="POST">
+                                <div class="container">                
+                                    <label for="tittle"><b>Tittle</b></label>
+                                    <input class="sua-tittle" type="text" placeholder="Tittle" name="header" id="tittle" required>
+                        
+                                    <label for="status"><b>Status</b></label>
+                                    <input class="sua-status" type="text" placeholder="Status" name="content" id="status" required>
+  
+                                    <input type="file"  name="image" id="image">
+  
+                                    </div>
+                                    <button type="submit" class="btn btn-success" id="submitbtn">Submit</button>
+                        
+                                </div>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+  
+  
+                        <form action="/notification/delete/<%= noti._id %>" method="post">
+                          <button type="submit" class="btn btn-danger">Xoá</button>
+                        </form>
+                      </div>
+  
+                    </div>
+              </div>
+              </div>
+            <% }) %>
+          </div>
+
+
+
+  
